@@ -2,7 +2,6 @@
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
-import xgboost as xgb
 
 # Load the Random Forest CLassifier model
 filename = 'first-innings-score-model.pkl'
@@ -108,7 +107,7 @@ def predict():
         temp_array = temp_array + [over, ball, current_score, wickets]
         
         data = np.array([temp_array])
-        my_prediction = int(regressor.predict(xgb.DMatrix(data))[0])
+        my_prediction = int(regressor.predict(data)[0])
               
         return render_template('result.html', lower_limit = my_prediction-10, upper_limit = my_prediction+5)
 
