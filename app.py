@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 
-# Load the Random Forest CLassifier model
+# Load the XGBoost Regressor model
 filename = 'first-innings-score-model.pkl'
 regressor = pickle.load(open(filename, 'rb'))
 
