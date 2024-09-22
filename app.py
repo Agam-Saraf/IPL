@@ -2,6 +2,9 @@
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
+import warnings
+
+warnings.filterwarnings("ignore", category=UserWarning)
 
 # Load the XGBoost Regressor model
 filename = 'first-innings-score-model.pkl'
